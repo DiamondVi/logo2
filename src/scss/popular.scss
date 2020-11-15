@@ -1,0 +1,142 @@
+.popular {
+  margin-top: 5.375rem;
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $Alto-color;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $emperor-color;
+  }
+
+  .popular__title {
+    font-size: 2rem;
+    font-family: PlayfairDisplay, sans-serif;
+    font-weight: 900;
+
+    &.tomarillo {
+      color: $tamarillo-color;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    &.green {
+      color: $DeepSeaGreen-color;
+    }
+  }
+
+  .popular__title:after {
+    content: '';
+    display: block;
+    width: 400px;
+    height: 2px;
+    margin: 0.625rem auto 0;
+    background-color: $white-color;
+  }
+
+  .popular__container {
+    background-color: $white-color;
+    box-shadow: 0 0px 13px 0 rgba(0, 0, 0, 0.15);
+    height: 440px;
+  }
+
+  .popular__body {
+    flex-direction: column;
+    padding: 32px 50px 37px 36px;
+  }
+
+  .popular__column-1 {
+    flex-basis: 520px;
+
+    img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+    }
+  }
+
+  .popular__column-2 {
+    flex-basis: 600px;
+  }
+
+  .popular__time {
+    align-items: flex-end;
+  }
+
+  .cards__clock {
+    font-size: 1rem;
+    margin-right: 11px;
+  }
+
+  .cards__clock::after {
+    display: none;
+  }
+
+  .popular__complexity {
+    -ms-flex-align: center;
+    align-items: flex-end;
+    font-size: 1.125rem;
+    overflow: hidden;
+    white-space: nowrap;
+    color: $doveGray-color;
+    font-family: "JosefinSans", sans-serif;
+    font-weight: 300;
+  }
+
+  .popular__complexity:before {
+    background: url("../img/easy-icon.png") no-repeat center/contain;
+    content: '';
+    display: block;
+    width: 26px;
+    height: 24px;
+    margin-right: 11px;
+  }
+
+  .popular__btn {
+    margin-left: auto;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border: 1px solid $silver-color;
+    padding: 9px 15px;
+    font-family: "JosefinSans", sans-serif;
+    font-weight: 300;
+  }
+
+  .popular__filling {
+    max-height: 265px;
+    overflow: auto;
+    margin-top: 25px;
+
+    .popular__subdescr {
+      max-width: 480px;
+      margin-bottom: 22px;
+      font-size: 1rem;
+      line-height: 19px;
+      font-family: "JosefinSans", sans-serif;
+      font-weight: 300;
+    }
+
+    .popular__subtitle {
+      font-size: 1rem;
+      font-family: "PlayfairDisplay", sans-serif;
+      font-weight: 700;
+    }
+
+    .popular__descr {
+      max-width: 495px;
+      margin: 25px 0 0 0;
+      font-size: 1rem;
+      line-height: 19px;
+      font-family: "JosefinSans", sans-serif;
+      font-weight: 300;
+
+      span {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

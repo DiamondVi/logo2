@@ -1,0 +1,51 @@
+.footer {
+  margin-top: 5.125rem;
+
+  .footer__top {
+    align-items: center;
+    //justify-content: space-around;
+  }
+
+  .footer__list {
+    //width: 40%;
+    margin: 0 133px 0 110px;
+    justify-content: space-between;
+
+    .footer__link {
+      text-transform: uppercase;
+      color: $emperor-color;
+      padding: 10px;
+      font-size: 0.75rem;
+      font-family: "JosefinSans", sans-serif;
+      font-weight: 700;
+    }
+  }
+
+  .footer__container {
+    background-color: $mineShaft-color;
+    padding: 35px 35px 35px 87px;
+  }
+
+  .footer__info {
+    text-transform: uppercase;
+    color: $emperor-color;
+    font-size: 0.75rem;
+    font-family: "JosefinSans", sans-serif;
+    font-weight: 700;
+  }
+
+  .footer__bottom {
+    justify-content: flex-end;
+
+    .footer__links {
+
+      width: 100px;
+      justify-content: space-between;
+
+      .footer__links-item {
+
+        color: $emperor-color;
+      }
+    }
+  }
+}
