@@ -12,11 +12,15 @@
     @media (max-width: $screen-sm){
       flex-direction: column;
       box-shadow: none;
+      box-shadow: none;
     }
   }
   .cards__column{
     flex: 0 1 33.333%;
     padding: 40px 21px 48px;
+    @media (max-width: $screen-sm){
+      padding: 0px;
+    }
   }
   .cards__image{
     padding: 0 0 65% 0;
@@ -33,6 +37,9 @@
     }
     }
   .cards__body{
+    @media (max-width: $screen-sm){
+      margin: 0 0 30px 23px;
+    }
     h3{
       font-size: 1.125rem;
       font-family: "JosefinSans", sans-serif;
