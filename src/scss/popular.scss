@@ -1,6 +1,11 @@
 .popular {
   margin-top: 5.375rem;
-
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin-top: 3.125rem;
+  }
+  @media (max-width: $screen-sm-max){
+    margin-top: 25px;
+  }
   ::-webkit-scrollbar {
     width: 2px;
   }

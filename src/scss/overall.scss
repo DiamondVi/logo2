@@ -4,10 +4,14 @@ $doveGray-color: #6f6f6f;
 body{
   background-color: $gallery-color;
 }
+
 .container{
   max-width: 1150px;
   margin: 0 auto;
   padding: 0 15px;
+  @media (max-width: $screen-sm-max){
+    padding: 0;
+  }
  }
 .flex{
   display: flex;

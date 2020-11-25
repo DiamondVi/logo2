@@ -1,19 +1,39 @@
 .carousel{
   margin-top: 5.375rem;
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin-top: 3.125rem;
+  }
+  @media (max-width: $screen-sm-max){
+    margin-top: 0;
+  }
   .carousel-inner{
     position: relative;
     box-shadow: 0 0px 13px 0 rgba(0,0,0, 0.15);
+    @media (max-width: $screen-sm-max){
+      box-shadow: none;
+    }
   }
 }
 .item{
   display: none;
   max-width: 1120px;
   height: 450px;
+  @media (max-width: $screen-sm){
+    height: 273px;
+    background-color: $catskillWhite-color;
+  }
   overflow: hidden;
   >img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @media (max-width: $screen-sm){
+      margin-top: 0;
+      height: 204px;
+    }
+    //@media (max-width: 380px){
+    //  object-position: -150px 0px;
+    //}
   }
   &.active{
     display: block;
@@ -23,6 +43,9 @@
   display: block;
   position: absolute;
   top: 50%;
+  @media (max-width: $screen-sm) {
+    top: 90px;
+  }
   height: 15px;
   width: 15px;
   border: solid $silver-color;
@@ -48,6 +71,9 @@
   opacity: 0.8;
 }
 .carousel-indicators{
+  @media (max-width: $screen-sm){
+    display: none;
+  }
   position: absolute;
   bottom: 23px;
   right: 17px;
@@ -69,6 +95,9 @@
     position: absolute;
     top: 50px;
     left: 92px;
+    @media (max-width: $screen-sm){
+      display: none;
+    }
   }
   >h3{
     position: absolute;
@@ -78,6 +107,9 @@
     font-size: 1.5rem;
     font-family: "PlayfairDisplay", sans-serif;
     font-weight: 400;
+    @media (max-width: $screen-sm){
+      display: none;
+    }
   }
   >p{
     position: absolute;
@@ -89,6 +121,9 @@
     font-weight: 300;
     max-width: 329px;
     overflow: hidden;
+    @media (max-width: $screen-sm){
+      display: none;
+    }
   }
   >a{
     position: absolute;
@@ -100,6 +135,23 @@
     font-size: 0.75rem;
     font-family: "JosefinSans", sans-serif;
     font-weight: 300;
-    padding: 9px 13px;
+    //padding: 9px 13px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+   display: block;
+    padding: 10px 5px;
+    @media (max-width: $screen-sm){
+      border: none;
+      top: auto;
+      bottom: 15px;
+      font-size: 18px;
+      left: auto;
+      right: auto;
+      width: 100%;
+      //height: 100%;
+      text-align: center;
+      //padding: 10px 5px;
+    }
   }
 }

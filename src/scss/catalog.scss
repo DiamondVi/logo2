@@ -1,9 +1,18 @@
 .cards {
   margin-top: 5.375rem;
+  @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    margin-top: 3.125rem;
+  }
+  @media (max-width: $screen-sm-max){
+    margin-top: 0;
+  }
   .cards__row {
     background-color: $white-color;
     box-shadow: 0 0px 13px 0 rgba(0, 0, 0, 0.15);
-
+    @media (max-width: $screen-sm){
+      flex-direction: column;
+      box-shadow: none;
+    }
   }
   .cards__column{
     flex: 0 1 33.333%;
