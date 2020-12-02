@@ -1,24 +1,4 @@
-$gallery-color: #eaeaea;
-$doveGray-color: #6f6f6f;
 
-body{
-  background-color: $gallery-color;
-}
-
-.container{
-  max-width: 1150px;
-  margin: 0 auto;
-  padding: 0 15px;
-  @media (max-width: $screen-sm-max){
-    padding: 0;
-  }
- }
-.flex{
-  display: flex;
-}
-input{
-  outline: none;
-}
 .btn-reset {
   border: none;
   background-color: transparent;
@@ -31,68 +11,4 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
-}
-.cards__views {
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.75rem;
-  overflow: hidden;
-  white-space: nowrap;
-  color: $doveGray-color;
-  font-family: "OpenSans", sans-serif;
-  font-weight: 300;
-}
-.cards__views::before {
-  background: url("../img/view-icon.png") no-repeat center/contain;
-  content: '';
-  display: block;
-  width: 13px;
-  height: 9px;
-  margin-right: 3px;
-}
-.cards__comment {
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.75rem;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-right: 2px;
-  color: $doveGray-color;
-  font-family: "OpenSans", sans-serif;
-  font-weight: 300;
-}
-.cards__comment::before {
-  background: url("../img/comment-icon.png") no-repeat center/contain;
-  content: '';
-  display: block;
-  width: 13px;
-  height: 11px;
-  margin-right: 2px;
-}
-.cards__clock {
-  -ms-flex-align: center;
-  align-items: center;
-  font-size: 0.75rem;
-  overflow: hidden;
-  white-space: nowrap;
-  color: $doveGray-color;
-  font-family: "OpenSans", sans-serif;
-  font-weight: 300;
-}
-.cards__clock::before {
-  background: url("../img/clock-icon.png") no-repeat center/contain;
-  content: '';
-  display: block;
-  width: 11px;
-  height: 12px;
-  margin-right: 3px;
-}
-.cards__clock::after {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 14px;
-  margin-right: 4px;
-  margin-left: 5px;
-  background-color: $doveGray-color;
 }
