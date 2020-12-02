@@ -1,13 +1,17 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<html lang="ru">
+<%= _.template(require('../includes/_head.html').default)({ title: "Главная"})%>
 <body>
+<div class="wrapper">
+    <%= _.template(require('../includes/_header.html').default)()%>
+    <main class="page">
+
+    </main>
+    <%= _.template(require('../includes/_popup.html').default)()%>
+    <%= _.template(require('../includes/_js.html').default)()%>
+</div>
+
+
 
 </body>
 </html>

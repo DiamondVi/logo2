@@ -1,8 +1,18 @@
+@import "mixins";
 @import "fonts";
 @import "variables";
 @import "normalize";
 @import "global";
 @import "overall";
+//@import "popup";
+@import "header";
+@import "footer";
+//@import "home";
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 
 
