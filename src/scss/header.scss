@@ -1,0 +1,219 @@
+.header {
+  background: url("../img/bg_header.jpg") top no-repeat;
+}
+
+.top-header {
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 90px;
+  }
+
+  &__column {
+    flex: 0 1 50%;
+
+    &:nth-child(2) {
+      align-self: flex-start;
+      padding: 25px 0 0 0;
+      flex: 0 0 190px;
+      text-align: center;
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      flex: 0 1 31.333%;
+      margin: 5px 0;
+    }
+  }
+
+  &__link {
+    font-family: "Play", sans-serif;
+    font-weight: 700;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 27px;
+    padding: 0 22px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: #80ccd6 underline;
+    white-space: nowrap;
+    @media (min-width: $md2+px) {
+      &:hover {
+        background-color: #068292;
+      }
+    }
+  }
+}
+
+.contacts-header {
+  display: flex;
+  justify-content: center;
+
+  &__column {
+    padding: 0 30px;
+    border-right: 1px solid #ffffff;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &__item {
+    &_icon {
+      background: url("../img/ico/header/phone.png") left no-repeat;
+      padding: 0 0 0 37px;
+    }
+  }
+
+  &__label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: white;
+  }
+
+  &__phone {
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+  }
+}
+
+.bottom-header {
+  &__container {
+    display: flex;
+    height: 63px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__column {
+    flex: 0 1 calc(50% - 95px);
+  }
+}
+
+.actions-header {
+  display: flex;
+  align-items: center;
+
+  li {
+    margin: 0 54px 0 0;
+    @media (max-width: $maxWidthContainer+px) {
+      margin: 0 54 / $maxWidthContainer * 100vw 0 0;
+    }
+  }
+
+  &__login {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background: url("../img/ico/header/login.png") left no-repeat;
+    display: inline-block;
+    line-height: 24px;
+    padding: 0 0 0 36px;
+    color: #999999;
+
+    span {
+      border-bottom: 1px dashed #999999;
+    }
+  }
+
+  &__checkin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background: url("../img/ico/header/user.png") left no-repeat;
+    display: inline-block;
+    line-height: 24px;
+    padding: 0 0 0 33px;
+    color: #1ab9ce;
+
+    span {
+      border-bottom: 1px dashed #1ab9ce;
+    }
+  }
+
+  &__email {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background: url("../img/ico/header/mail.png") left no-repeat;
+    display: inline-block;
+    line-height: 24px;
+    padding: 0 0 0 35px;
+    color: #1ab9ce;
+
+    span {
+      border-bottom: 1px dashed #1ab9ce;
+    }
+  }
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+
+  &__column {
+    padding: 0 54px 0 0;
+    @media (max-width: $maxWidthContainer+px) {
+      padding: 0 54 / $maxWidthContainer * 100vw 0 0;
+    }
+
+    &:last-child {
+      padding: 0;
+    }
+  }
+
+  &__callback {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background: url("../img/ico/header/callback.png") left no-repeat;
+    display: inline-block;
+    line-height: 20px;
+    padding: 0 0 0 32px;
+    color: #1ab9ce;
+
+    span {
+      border-bottom: 1px dashed #1ab9ce;
+    }
+  }
+
+  &__schedule {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background: url("../img/ico/header/schedule.png") left no-repeat;
+    display: inline-block;
+    line-height: 18px;
+    padding: 0 0 0 37px;
+    color: #999999;
+
+    span {
+      font-weight: 900;
+    }
+  }
+
+  &__cart {
+    background: url("../img/ico/header/cart.png") left no-repeat;
+    display: inline-block;
+    width: 43px;
+    height: 43px;
+    position: relative;
+
+    span {
+      line-height: 25px;
+      padding: 0 11px;
+      background-color: #f68038;
+      border-radius: 15px;
+      position: absolute;
+      right: 0;
+      transform: translate(70%, 0px);
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+    }
+  }
+}
