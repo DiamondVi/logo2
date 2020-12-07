@@ -1,22 +1,46 @@
 .header {
   background: url("../img/bg_header.jpg") top no-repeat;
+
+  &__bottom {
+  }
+
+  @media (max-width: $md3+px) {
+    background: url("../img/bg_header.jpg") 0 -20px no-repeat;
+  }
 }
 
 .top-header {
+
   &__content {
     display: flex;
     align-items: center;
     height: 90px;
-  }
 
+    @media (max-width: $md3+px) {
+      height: 70px;
+    }
+  }
   &__column {
     flex: 0 1 50%;
 
     &:nth-child(2) {
-      align-self: flex-start;
-      padding: 25px 0 0 0;
       flex: 0 0 190px;
       text-align: center;
+      @media (min-width: $md3+px) {
+        flex: 0 0 100px;
+        align-self: flex-start;
+        padding: 25px 0 0 0;
+      }
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    @media (max-width: $md3+px) {
+      width: 100px;
+      img {
+        max-width: 100%;
+      }
     }
   }
 }
@@ -34,7 +58,6 @@
       top: 0;
       left: 0;
       overflow: auto;
-      display: none;
     }
   }
 
@@ -71,23 +94,23 @@
 .contacts-header {
   display: flex;
   justify-content: center;
-  @media (max-width: $md2+px){
-    flex-direction: column;
+  @media (max-width: $md2+px) {
+   justify-content: flex-end;
   }
 
   &__column {
     padding: 0 30px;
-    border-right: 1px solid #ffffff;
-    @media (max-width: $md2+px){
-      border: none;
-      margin: 0 0 10px 80px;
-      &:last-child{
-        margin-bottom: 0;
+    border-left: 1px solid #ffffff;
+    @media (max-width: 640px) {
+     padding: 0;
+      }
+    @media (max-width: $md2+px) {
+      &:last-child {
+        display: none;
       }
     }
-
-    &:last-child {
-      border-right: none;
+    &:first-child {
+      border-left: none;
     }
 
     @media (max-width: $md1+px) {
@@ -99,14 +122,14 @@
     &_icon {
       background: url("../img/ico/header/phone.png") left no-repeat;
       padding: 0 0 0 37px;
-      @media (max-width: $md2+px){
-        background: none;
-        padding: 0;
-      }
       @media (max-width: $md1+px) {
-        //padding: 0 0 0 25px;
+        padding: 0 0 0 25px;
         background-size: 15px;
       }
+    }
+    @media (max-width: 640px) {
+      background: none;
+      padding: 0;
     }
   }
 
@@ -115,6 +138,9 @@
     font-weight: 300;
     font-size: 12px;
     color: white;
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   &__phone {
@@ -124,6 +150,14 @@
     white-space: nowrap;
     @media (max-width: $md1+px) {
       font-size: 16px;
+    }
+    @media (max-width: 640px) {
+      display: inline-block;
+      background: url("../img/ico/header/phone.png") left no-repeat;
+      width: 19px;
+      height: 25px;
+      font-size: 0;
+      vertical-align: middle;
     }
   }
 }
@@ -145,6 +179,7 @@
   display: flex;
   align-items: center;
 
+
   li {
     margin: 0 54px 0 0;
     @media (max-width: $maxWidthContainer+px) {
@@ -162,7 +197,7 @@
     color: #999999;
 
     span {
-      border-bottom: 1px dashed #999999;
+      border-bottom: 1px solid #999999;
     }
 
     @media (max-width: $md1+px) {
@@ -172,7 +207,15 @@
     @media (min-width: $md2+px) {
       &:hover {
         color: #1ab9ce;
+
+        span {
+          border-bottom: 1px dashed #1ab9ce;
+        }
       }
+    }
+    @media (max-width: $md2+px) {
+      padding: 0;
+      background: none;
     }
 
   }
@@ -187,7 +230,7 @@
     color: #999999;
 
     span {
-      border-bottom: 1px dashed #1ab9ce;
+      border-bottom: 1px solid #999999;
     }
 
     @media (max-width: $md1+px) {
@@ -197,9 +240,16 @@
     @media (min-width: $md2+px) {
       &:hover {
         color: #1ab9ce;
+
+        span {
+          border-bottom: 1px dashed #1ab9ce;
+        }
       }
     }
-
+    @media (max-width: $md2+px) {
+      padding: 0;
+      background: none;
+    }
   }
 
   &__email {
@@ -210,9 +260,13 @@
     line-height: 24px;
     padding: 0 0 0 35px;
     color: #999999;
+    @media (max-width: $md2+px) {
+      padding: 0;
+      background: none;
+    }
 
     span {
-      border-bottom: 1px solid #1ab9ce;
+      border-bottom: 1px solid #999999;
     }
 
     @media (max-width: $md1+px) {
@@ -221,6 +275,10 @@
     @media (min-width: $md2+px) {
       &:hover {
         color: #1ab9ce;
+
+        span {
+          border-bottom: 1px dashed #1ab9ce;
+        }
       }
     }
   }
@@ -229,9 +287,15 @@
 .info-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $md2+px) {
+    justify-content: space-evenly;
+  }
 
   &__column {
     padding: 0 54px 0 0;
+
     @media (max-width: $maxWidthContainer+px) {
       padding: 0 30 / $maxWidthContainer * 100vw 0 0;
     }
@@ -249,15 +313,16 @@
     line-height: 20px;
     padding: 0 0 0 32px;
     color: #1ab9ce;
+    white-space: nowrap;
 
     span {
       border-bottom: 1px dashed #1ab9ce;
     }
 
-    @media (max-width: $md1+px) {
-      background: none;
-      padding: 0;
-    }
+    //@media (max-width: $md1+px) {
+    //  background: none;
+    //  padding: 0;
+    //}
   }
 
   &__schedule {
@@ -268,6 +333,10 @@
     line-height: 18px;
     padding: 0 0 0 37px;
     color: #999999;
+
+    @media (max-width: $md2+px) {
+      display: none;
+    }
 
     span {
       font-weight: 900;
