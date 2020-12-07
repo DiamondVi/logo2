@@ -83,6 +83,7 @@
     color: white;
     text-decoration: #80ccd6 underline;
     white-space: nowrap;
+    display: none;
     @media (min-width: $md2+px) {
       &:hover {
         background-color: #068292;
