@@ -52,12 +52,19 @@
 
   &__body {
     @media (max-width: $md2+px) {
+      display: none;
       position: fixed;
       height: 100%;
       width: 100%;
       top: 0;
       left: 0;
       overflow: auto;
+      background-color: rgba(26, 185, 206, 0.9);
+      padding: 70px 20px 30px 20px;
+      z-index: 2;
+      &._active{
+        display: block;
+      }
     }
   }
 
@@ -83,7 +90,6 @@
     color: white;
     text-decoration: #80ccd6 underline;
     white-space: nowrap;
-    display: none;
     @media (min-width: $md2+px) {
       &:hover {
         background-color: #068292;

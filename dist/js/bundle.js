@@ -17,13 +17,178 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/dynamic_adapt.js":
+/*!*********************************!*\
+  !*** ./src/js/dynamic_adapt.js ***!
+  \*********************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+const parent_original = document.querySelector(".menu__body");
+const parent = document.querySelector(".menu__list");
+const item = document.querySelector(".actions-header");
+
+window.addEventListener("resize", function (event) {
+    const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if (viewport_width <= 640) {
+        if (!item.classList.contains("done")) {
+            parent.classList.add("done");
+        }
+    } else {
+        if (item.classList.contains("done")) {
+            parent_original.insertBefore(item, parent_original.children[2]);
+            item.classList.remove("done");
+        }
+    }
+});
+
+(function () {
+    let original_positions = [];
+    let da_elements = document.querySelectorAll("[data-da]");
+    let da_elements_array = [];
+    let da_match_media = [];
+
+    if (da_elements.length > 0) {
+        let number = 0;
+        for (let index = 0; index < da_elements.length; index++) {
+            const da_element = da_elements[index];
+            const da_move = da_element.getAttribute("data-da");
+            const da_array = da_move.split(",");
+            if (da_array.length == 3) {
+                da_element.setAttribute("data-da-index", number);
+                original_positions[number] = {
+                    "parent": da_element.parentNode,
+                    "index": index_in_parent(da_element)
+                };
+                da_elements_array[number] = {
+                    "element": da_element,
+                    "destination": document.querySelector("." + da_array[0].trim()),
+                    "place": da_array[1].trim(),
+                    "breakpoint": da_array[2].trim()
+                }
+                number++;
+            }
+        }
+        dynamic_adapt_sort(da_elements_array);
+        for (let index = 0; index < da_elements_array.length; index++) {
+            const el = da_elements_array[index];
+            const da_breakpoint = el.breakpoint;
+            const da_type = "max";
+
+            da_match_media.push(window.matchMedia("(" + da_type + "-width:" + da_breakpoint + "px)"));
+            da_match_media[index].addListener(dynamic_adapt);
+        }
+    }
+
+    function dynamic_adapt(e) {
+        for (let index = 0; index < da_elements_array.length; index++) {
+            const el = da_elements_array[index];
+            const da_element = el.element;
+            const da_destination = el.destination;
+            const da_plase = el.place;
+            const da_breakpoint = el.breakpoint;
+            const da_classname = "_dynamic_adapt_" + da_breakpoint;
+
+            if (da_match_media[index].matches) {
+                if (!da_element.classList.contains(da_classname)) {
+                    let actual_index;
+                    if (da_plase == "first") {
+                        actual_index = index_of_elements(da_destination)[0];
+                    } else if (da_plase == "last") {
+                        actual_index = index_of_elements(da_destination)[index_of_elements(da_destination).length];
+                    } else {
+                        actual_index = index_of_elements(da_destination)[da_plase];
+                    }
+                    da_destination.insertBefore(da_element, da_destination.children[actual_index]);
+                    da_element.classList.add(da_classname);
+                }
+            } else {
+                if (da_element.classList.contains(da_classname)) {
+                    dynamic_adapt_back(da_element);
+                    da_element.classList.remove(da_classname);
+                }
+            }
+        }
+        custom_adapt();
+    }
+
+    dynamic_adapt();
+
+    function dynamic_adapt_back(el) {
+        const da_index = el.getAttribute("data-da-index");
+        const original_place = original_positions[da_index];
+        const parent_place = original_place["parent"];
+        const index_place = original_place["index"];
+        const actual_index = index_of_elements(parent_place, true)[index_place];
+        parent_place.insertBefore(el, parent_place.children[actual_index]);
+    }
+
+    function index_in_parent(el) {
+        var children = Array.prototype.slice.call(el.parentNode.children);
+        return children.indexOf(el);
+    }
+
+    function index_of_elements(parent, back) {
+        debugger
+        const children = parent.children;
+        const children_array = [];
+        for (let i = 0; i < children.length; i++) {
+            const children_element = children[i];
+            if (back) {
+                children_array.push(i);
+            } else {
+                if (children_element.getAttribute("data-da") == null) {
+                    children_array.push(i);
+                }
+            }
+        }
+        return children_array;
+    }
+
+    function dynamic_adapt_sort(arr) {
+        arr.sort(function (a, b) {
+            if (a.breakpoint > b.breakpoint) {
+                return -1
+            } else {
+                return 1
+            }
+        });
+        arr.sort(function (a, b) {
+            if (a.place > b.place) {
+                return 1
+            } else {
+                return -1
+            }
+        });
+    }
+
+    function custom_adapt() {
+        const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+
+    window.addEventListener("resize", function (event) {
+
+    })
+})()
+
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-/*! unknown exports (runtime-defined) */
-/*! runtime requirements:  */
-/***/ (() => {
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dynamic_adapt */ "./src/js/dynamic_adapt.js");
+/* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__);
+;
 
 let menu__icon = document.querySelector('.icon-menu');
 let menu__body = document.querySelector('.menu__body');
@@ -41,6 +206,7 @@ menu__list.onclick = function () {
     menu__body.classList.remove('_active');
     back.classList.remove('lock');
 }
+
 
 // let isMobile = {
 //     Android: function () {
@@ -117,6 +283,35 @@ menu__list.onclick = function () {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => module['default'] :
+/******/ 				() => module;
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -132,8 +327,8 @@ menu__list.onclick = function () {
 /******/ 	// startup
 /******/ 	// Load entry module
 /******/ 	__webpack_require__("./src/js/index.js");
-/******/ 	__webpack_require__("./src/scss/style.scss");
 /******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ 	__webpack_require__("./src/scss/style.scss");
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map

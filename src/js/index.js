@@ -1,3 +1,5 @@
+import dynamic_adapt from "./dynamic_adapt"
+
 let menu__icon = document.querySelector('.icon-menu');
 let menu__body = document.querySelector('.menu__body');
 let back = document.querySelector('body');
@@ -14,6 +16,7 @@ menu__list.onclick = function () {
     menu__body.classList.remove('_active');
     back.classList.remove('lock');
 }
+
 
 // let isMobile = {
 //     Android: function () {
