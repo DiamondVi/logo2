@@ -20,6 +20,7 @@
       height: 70px;
     }
   }
+
   &__column {
     flex: 0 1 50%;
 
@@ -27,14 +28,18 @@
       flex: 0 0 190px;
       text-align: center;
       @media (min-width: $md3+px) {
-        flex: 0 0 100px;
         align-self: flex-start;
         padding: 25px 0 0 0;
+      }
+      @media (max-width: $md3+px) {
+        flex: 0 0 100px;
       }
     }
   }
 
   &__logo {
+    position: relative;
+    z-index: 5;
     display: inline-block;
     @media (max-width: $md3+px) {
       width: 100px;
@@ -42,6 +47,14 @@
         max-width: 100%;
       }
     }
+    @media (max-width: 640px) {
+      width: 90px;
+    }
+  }
+
+  &__contacts {
+    position: relative;
+    z-index: 5;
   }
 }
 
@@ -52,18 +65,39 @@
 
   &__body {
     @media (max-width: $md2+px) {
+      opacity: 0;
       display: none;
       position: fixed;
       height: 100%;
       width: 100%;
       top: 0;
       left: 0;
+      visibility: hidden;
       overflow: auto;
-      background-color: rgba(26, 185, 206, 0.9);
-      padding: 70px 20px 30px 20px;
+      background-color: white;
+      padding: 120px 20px 30px 20px;
       z-index: 2;
-      &._active{
+      transition: all .5s ease 5s;
+      &:before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 105px;
+        top: 0;
+        left: 0;
+        background-color: #1ab9ce;
+        z-index: 3;
+      }
+      &._active {
+        opacity: 1;
         display: block;
+        visibility: visible;
+      }
+      @media (max-width: $md3+px) {
+        padding: 90px 20px 30px 20px;
+        &:before {
+          height: 70px;
+        }
       }
     }
   }
@@ -75,6 +109,13 @@
     li {
       flex: 0 1 30%;
       margin: 5px 0;
+    }
+
+    @media (max-width: $md2+px) {
+      display: block;
+      li {
+        margin: 0 0 20px 0;
+      }
     }
   }
 
@@ -95,33 +136,39 @@
         background-color: #068292;
       }
     }
+    @media (max-width: $md2+px) {
+      text-decoration: #000000 underline;
+      color: black;
+      padding: 0;
+      font-size: 20px;
+    }
   }
 }
+
 
 .contacts-header {
   display: flex;
   justify-content: center;
   @media (max-width: $md2+px) {
-   justify-content: flex-end;
+    justify-content: flex-end;
+  }
+  @media (max-width: 640px) {
+    align-items: center;
   }
 
   &__column {
     padding: 0 30px;
-    border-left: 1px solid #ffffff;
-    @media (max-width: 640px) {
-     padding: 0;
-      }
-    @media (max-width: $md2+px) {
-      &:last-child {
-        display: none;
+    @media (min-width: $md2+px) {
+      border-left: 1px solid #ffffff;
+      &:first-child {
+        border-left: none;
       }
     }
-    &:first-child {
-      border-left: none;
-    }
-
     @media (max-width: $md1+px) {
       padding: 0 15px;
+    }
+    @media (max-width: 640px) {
+      padding: 0;
     }
   }
 
@@ -133,10 +180,17 @@
         padding: 0 0 0 25px;
         background-size: 15px;
       }
+
+      @media (max-width: 640px) {
+        background: none;
+        padding: 0;
+      }
     }
-    @media (max-width: 640px) {
-      background: none;
-      padding: 0;
+
+    &_second-phone {
+      @media (max-width: $md2+px) {
+        display: none;
+      }
     }
   }
 
@@ -159,22 +213,30 @@
       font-size: 16px;
     }
     @media (max-width: 640px) {
-      display: inline-block;
+      display: block;
       background: url("../img/ico/header/phone.png") left no-repeat;
       width: 19px;
       height: 25px;
       font-size: 0;
-      vertical-align: middle;
+      margin: 0 10px 0 0;
     }
   }
 }
 
 .bottom-header {
+
   &__container {
+
+  }
+
+  &__row {
     display: flex;
     height: 63px;
     align-items: center;
     justify-content: space-between;
+    @media (min-width: $md1+px){
+      padding: 0 15px;
+    }
   }
 
   &__column {
@@ -190,8 +252,17 @@
   li {
     margin: 0 54px 0 0;
     @media (max-width: $maxWidthContainer+px) {
-      margin: 0 54 / $maxWidthContainer * 100vw 0 0;
+      margin: 0 30 / $maxWidthContainer * 100vw 0 0;
     }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    justify-content: space-around;
+    //margin: 0 0 15px 0;
   }
 
   &__login {
@@ -279,6 +350,9 @@
     @media (max-width: $md1+px) {
       padding: 0 0 0 27px;
     }
+    @media (max-width: 640px) {
+      padding: 0;
+    }
     @media (min-width: $md2+px) {
       &:hover {
         color: #1ab9ce;
@@ -301,7 +375,7 @@
   }
 
   &__column {
-    padding: 0 54px 0 0;
+    padding: 0 30px 0 0;
 
     @media (max-width: $maxWidthContainer+px) {
       padding: 0 30 / $maxWidthContainer * 100vw 0 0;
@@ -356,7 +430,7 @@
   }
 
   &__cart {
-    background: url("../img/ico/header/cart.png") left no-repeat;
+    background: url("../img/ico/header/cart.png") 0 0 / 100% no-repeat;
     display: inline-block;
     width: 43px;
     height: 43px;
@@ -375,8 +449,16 @@
       font-size: 18px;
       color: white;
       font-weight: 700;
-      @media (max-width: 1200px) {
+    }
 
+    @media (max-width: 640px) {
+      width: 40px;
+      height: 40px;
+      span {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0 7px;
+        transform: translate(50%, 0px);
       }
     }
   }
