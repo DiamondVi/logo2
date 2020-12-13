@@ -1,11 +1,16 @@
 .header {
-  background: url("../img/bg_header.jpg") top no-repeat;
+  background: #ffffff url("../img/bg_header.jpg") top no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
 
   &__bottom {
   }
 
   @media (max-width: $md3+px) {
-    background: url("../img/bg_header.jpg") 0 -20px no-repeat;
+    background: #ffffff url("../img/bg_header.jpg") 0 -20px no-repeat;
   }
 }
 
@@ -15,6 +20,7 @@
     display: flex;
     align-items: center;
     height: 90px;
+
 
     @media (max-width: $md3+px) {
       height: 70px;
@@ -234,7 +240,7 @@
     height: 63px;
     align-items: center;
     justify-content: space-between;
-    @media (min-width: $md1+px){
+    @media (min-width: $md1+px) {
       padding: 0 15px;
     }
   }

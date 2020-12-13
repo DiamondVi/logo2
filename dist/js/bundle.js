@@ -1,2 +1,334 @@
-(()=>{var e={169:()=>{const e=document.querySelector(".menu__body"),t=document.querySelector(".menu__list"),n=document.querySelector(".actions-header");window.addEventListener("resize",(function(o){Math.max(document.documentElement.clientWidth,window.innerWidth||0)<=640?n.classList.contains("done")||t.classList.add("done"):n.classList.contains("done")&&(e.insertBefore(n,e.children[2]),n.classList.remove("done"))})),function(){let e=[],t=document.querySelectorAll("[data-da]"),n=[],o=[];if(t.length>0){let a=0;for(let o=0;o<t.length;o++){const i=t[o],s=i.getAttribute("data-da").split(",");3==s.length&&(i.setAttribute("data-da-index",a),e[a]={parent:i.parentNode,index:(r=i,c=void 0,c=Array.prototype.slice.call(r.parentNode.children),c.indexOf(r))},n[a]={element:i,destination:document.querySelector("."+s[0].trim()),place:s[1].trim(),breakpoint:s[2].trim()},a++)}(i=n).sort((function(e,t){return e.breakpoint>t.breakpoint?-1:1})),i.sort((function(e,t){return e.place>t.place?1:-1}));for(let e=0;e<n.length;e++){const t=n[e].breakpoint,i="max";o.push(window.matchMedia("("+i+"-width:"+t+"px)")),o[e].addListener(s)}}var i,r,c;function s(e){for(let e=0;e<n.length;e++){const t=n[e],i=t.element,r=t.destination,c=t.place,s="_dynamic_adapt_"+t.breakpoint;if(o[e].matches){if(!i.classList.contains(s)){let e;e="first"==c?l(r)[0]:"last"==c?l(r)[l(r).length]:l(r)[c],r.insertBefore(i,r.children[e]),i.classList.add(s)}}else i.classList.contains(s)&&(a(i),i.classList.remove(s))}Math.max(document.documentElement.clientWidth,window.innerWidth||0)}function a(t){const n=t.getAttribute("data-da-index"),o=e[n],i=o.parent,r=o.index,c=l(i,!0)[r];i.insertBefore(t,i.children[c])}function l(e,t){const n=e.children,o=[];for(let e=0;e<n.length;e++){const i=n[e];(t||null==i.getAttribute("data-da"))&&o.push(e)}return o}s(),window.addEventListener("resize",(function(e){}))}()}},t={};function n(o){if(t[o])return t[o].exports;var i=t[o]={exports:{}};return e[o](i,i.exports,n),i.exports}n.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return n.d(t,{a:t}),t},n.d=(e,t)=>{for(var o in t)n.o(t,o)&&!n.o(e,o)&&Object.defineProperty(e,o,{enumerable:!0,get:t[o]})},n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{"use strict";n(169);let e=document.querySelector(".icon-menu"),t=document.querySelector(".menu__body"),o=document.querySelector("body"),i=document.querySelector(".menu__list");e.onclick=function(){e.classList.toggle("_active"),t.classList.toggle("_active"),o.classList.toggle("lock")},i.onclick=function(){e.classList.remove("_active"),t.classList.remove("_active"),o.classList.remove("lock")}})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/scss/style.scss":
+/*!*****************************!*\
+  !*** ./src/scss/style.scss ***!
+  \*****************************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/js/dynamic_adapt.js":
+/*!*********************************!*\
+  !*** ./src/js/dynamic_adapt.js ***!
+  \*********************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+const parent_original = document.querySelector(".menu__body");
+const parent = document.querySelector(".menu__list");
+const item = document.querySelector(".actions-header");
+
+window.addEventListener("resize", function (event) {
+    const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if (viewport_width <= 640) {
+        if (!item.classList.contains("done")) {
+            parent.classList.add("done");
+        }
+    } else {
+        if (item.classList.contains("done")) {
+            parent_original.insertBefore(item, parent_original.children[2]);
+            item.classList.remove("done");
+        }
+    }
+});
+
+(function () {
+    let original_positions = [];
+    let da_elements = document.querySelectorAll("[data-da]");
+    let da_elements_array = [];
+    let da_match_media = [];
+
+    if (da_elements.length > 0) {
+        let number = 0;
+        for (let index = 0; index < da_elements.length; index++) {
+            const da_element = da_elements[index];
+            const da_move = da_element.getAttribute("data-da");
+            const da_array = da_move.split(",");
+            if (da_array.length == 3) {
+                da_element.setAttribute("data-da-index", number);
+                original_positions[number] = {
+                    "parent": da_element.parentNode,
+                    "index": index_in_parent(da_element)
+                };
+                da_elements_array[number] = {
+                    "element": da_element,
+                    "destination": document.querySelector("." + da_array[0].trim()),
+                    "place": da_array[1].trim(),
+                    "breakpoint": da_array[2].trim()
+                }
+                number++;
+            }
+        }
+        dynamic_adapt_sort(da_elements_array);
+        for (let index = 0; index < da_elements_array.length; index++) {
+            const el = da_elements_array[index];
+            const da_breakpoint = el.breakpoint;
+            const da_type = "max";
+
+            da_match_media.push(window.matchMedia("(" + da_type + "-width:" + da_breakpoint + "px)"));
+            da_match_media[index].addListener(dynamic_adapt);
+        }
+    }
+
+    function dynamic_adapt(e) {
+        for (let index = 0; index < da_elements_array.length; index++) {
+            const el = da_elements_array[index];
+            const da_element = el.element;
+            const da_destination = el.destination;
+            const da_plase = el.place;
+            const da_breakpoint = el.breakpoint;
+            const da_classname = "_dynamic_adapt_" + da_breakpoint;
+
+            if (da_match_media[index].matches) {
+                if (!da_element.classList.contains(da_classname)) {
+                    let actual_index;
+                    if (da_plase == "first") {
+                        actual_index = index_of_elements(da_destination)[0];
+                    } else if (da_plase == "last") {
+                        actual_index = index_of_elements(da_destination)[index_of_elements(da_destination).length];
+                    } else {
+                        actual_index = index_of_elements(da_destination)[da_plase];
+                    }
+                    da_destination.insertBefore(da_element, da_destination.children[actual_index]);
+                    da_element.classList.add(da_classname);
+                }
+            } else {
+                if (da_element.classList.contains(da_classname)) {
+                    dynamic_adapt_back(da_element);
+                    da_element.classList.remove(da_classname);
+                }
+            }
+        }
+        custom_adapt();
+    }
+
+    dynamic_adapt();
+
+    function dynamic_adapt_back(el) {
+        const da_index = el.getAttribute("data-da-index");
+        const original_place = original_positions[da_index];
+        const parent_place = original_place["parent"];
+        const index_place = original_place["index"];
+        const actual_index = index_of_elements(parent_place, true)[index_place];
+        parent_place.insertBefore(el, parent_place.children[actual_index]);
+    }
+
+    function index_in_parent(el) {
+        var children = Array.prototype.slice.call(el.parentNode.children);
+        return children.indexOf(el);
+    }
+
+    function index_of_elements(parent, back) {
+        debugger
+        const children = parent.children;
+        const children_array = [];
+        for (let i = 0; i < children.length; i++) {
+            const children_element = children[i];
+            if (back) {
+                children_array.push(i);
+            } else {
+                if (children_element.getAttribute("data-da") == null) {
+                    children_array.push(i);
+                }
+            }
+        }
+        return children_array;
+    }
+
+    function dynamic_adapt_sort(arr) {
+        arr.sort(function (a, b) {
+            if (a.breakpoint > b.breakpoint) {
+                return -1
+            } else {
+                return 1
+            }
+        });
+        arr.sort(function (a, b) {
+            if (a.place > b.place) {
+                return 1
+            } else {
+                return -1
+            }
+        });
+    }
+
+    function custom_adapt() {
+        const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    }
+
+    window.addEventListener("resize", function (event) {
+
+    })
+})()
+
+
+/***/ }),
+
+/***/ "./src/js/index.js":
+/*!*************************!*\
+  !*** ./src/js/index.js ***!
+  \*************************/
+/*! namespace exports */
+/*! exports [not provided] [no usage info] */
+/*! runtime requirements: __webpack_require__, __webpack_require__.n, __webpack_require__.r, __webpack_exports__, __webpack_require__.* */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dynamic_adapt */ "./src/js/dynamic_adapt.js");
+/* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__);
+;
+
+let menu__icon = document.querySelector('.icon-menu');
+let menu__body = document.querySelector('.menu__body');
+let back = document.querySelector('body');
+let menu__list = document.querySelector('.menu__list');
+
+menu__icon.onclick = function () {
+    menu__icon.classList.toggle('_active');
+    menu__body.classList.toggle('_active');
+    back.classList.toggle('lock');
+}
+
+menu__list.onclick = function () {
+    menu__icon.classList.remove('_active');
+    menu__body.classList.remove('_active');
+    back.classList.remove('lock');
+}
+
+
+// let isMobile = {
+//     Android: function () {
+//         return navigator.userAgent.match(/Android/i);
+//     },
+//     BlackBerry: function () {
+//         return navigator.userAgent.match(/BlackBerry/i);
+//     },
+//     iOS: function () {
+//         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+//     },
+//     Opera: function () {
+//         return navigator.userAgent.match(/Opera Mini/i);
+//     },
+//     Windows: function () {
+//         return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+//     },
+//     any: function () {
+//         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+//     }
+// };
+//
+// let body = document.querySelector("body");
+//
+// if (isMobile.any()) {
+//     body.classList.add("touch");
+//     let arrow = document.querySelectorAll(".menu__arrow");
+//     for (let i = 0; i < arrow.length; i++) {
+//         let arrow2 = arrow[i].querySelectorAll(".arrow");
+//         let thisLink = arrow2[i].previousElementSibling;
+//         let subMenu = arrow2[i].nextElementSibling;
+//         let thisArrow = arrow2[i];
+//
+//         thisLink.classList.add("parent");
+//         arrow[i].addEventListener("click", function (e) {
+//             // e.preventDefault();
+//             e.stopPropagation()
+//             subMenu.classList.toggle("open");
+//             thisArrow.classList.toggle("active");
+//         });
+//     }
+// } else {
+//     body.classList.add("mouse");
+// }
+
+
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => module['default'] :
+/******/ 				() => module;
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	// startup
+/******/ 	// Load entry module
+/******/ 	__webpack_require__("./src/js/index.js");
+/******/ 	// This entry module used 'exports' so it can't be inlined
+/******/ 	__webpack_require__("./src/scss/style.scss");
+/******/ })()
+;
 //# sourceMappingURL=bundle.js.map
