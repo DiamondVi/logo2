@@ -40,6 +40,29 @@ input {
   outline: none;
 }
 
+.btn {
+  display: inline-flex;
+  padding: 0px 25px;
+  justify-content: center;
+  align-items: center;
+  height: 39px;
+  background-color: #f68038;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: all .3s ease 0s;
+  @media (min-width: 992px) {
+    &:hover {
+      background-color: #aa4004;
+    }
+  }
+}
+
 .btn-reset {
   border: none;
   background-color: transparent;
@@ -47,6 +70,15 @@ input {
   outline: none;
   padding: 0;
 }
+
+input{
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+  padding: 0px 20px;
+  border: none;
+}
+
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
