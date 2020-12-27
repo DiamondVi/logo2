@@ -970,10 +970,34 @@ input[type='search']::-webkit-search-results-decoration {
   display: flex;
   position: relative; }
   .search-page__select {
-    display: flex; }
+    display: flex;
+    background-color: #f3f3f3;
+    padding: 0 14px;
+    align-items: center;
+    cursor: pointer; }
   .search-page__title {
+    color: #666666;
+    font-weight: 300;
     display: flex;
     align-items: center; }
+    .search-page__title span {
+      margin: 0 13px;
+      border-bottom: 1px dashed #666666; }
+      .search-page__title span:last-child {
+        display: none; }
+    .search-page__title:before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      background: url("../img/ico/search-icon.png"); }
+    .search-page__title:after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: url("../img/ico/arrow-icon.png");
+      transition: all .3s ease 0s; }
+    .search-page__title._active:after {
+      transform: rotate(-180deg); }
   .search-page__categories {
     position: absolute;
     top: 100%;
@@ -984,7 +1008,48 @@ input[type='search']::-webkit-search-results-decoration {
     border-bottom: 2px solid #f2f2f2;
     flex: 1 1 auto; }
     .search-page__input input {
-      height: 39px; }
+      height: 100%; }
+
+.categories-search {
+  display: none;
+  border-left: 1px solid #f3f3f3;
+  border-right: 1px solid #f3f3f3;
+  background-color: #ffffff;
+  border-bottom: 4px solid #f68038;
+  overflow: hidden; }
+  .categories-search__row {
+    display: flex; }
+  .categories-search__column {
+    flex: 0 1 33.333%;
+    padding: 27px 40px;
+    border-right: 1px solid #f3f3f3; }
+    .categories-search__column:last-child {
+      border: 0; }
+  .categories-search__list li {
+    margin: 0 0 20px 0; }
+    .categories-search__list li:last-child {
+      margin: 0; }
+  .categories-search__link {
+    color: #999999; }
+  .categories-search__checkbox {
+    position: relative; }
+    .categories-search__checkbox input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden; }
+      .categories-search__checkbox input:checked + .checkbox__text {
+        color: #f68038; }
+    .categories-search__checkbox .checkbox__text {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      font-size: 16px;
+      color: #999999;
+      letter-spacing: -0.3px;
+      line-height: calc(20 / 16);
+      cursor: pointer; }
 
 
 /*# sourceMappingURL=style.bundle.css.map*/

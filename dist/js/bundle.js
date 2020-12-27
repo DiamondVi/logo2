@@ -226,15 +226,15 @@ for (let index = 0; index < menuParents.length; index++) {
 ///////////////////////////////////////////////////////////////////////////////
 
 let _slideUp = (target, duration = 500) => {
-        // debugger
-        target.style.transitionProperty = 'height, margin, padding';
-        target.style.transitionDuration = duration + 'ms';
-        target.style.height = height //= target.offsetHeight + 'px';
-        target.offsetHeight;
-        // target.style.overflow = 'hidden';
-        target.style.height = 0;
-        // target.style.paddingTop = 0;
-        // target.style.paddingBottom = 0;
+    // debugger
+    target.style.transitionProperty = 'height, margin, padding';
+    target.style.transitionDuration = duration + 'ms';
+    target.style.height = height //= target.offsetHeight + 'px';
+    target.offsetHeight;
+    // target.style.overflow = 'hidden';
+    target.style.height = 0;
+    // target.style.paddingTop = 0;
+    // target.style.paddingBottom = 0;
     window.setTimeout(() => {
         target.style.display = 'none';
         target.style.removeProperty('height');
@@ -256,7 +256,7 @@ let _slideDown = (target, duration = 500) => {
     // let    display = 'block';
     // target.style.visibility = "hidden";
     target.style.display = 'block';
-    height =  target.offsetHeight + 'px';
+    height = target.offsetHeight + 'px';
     // target.style.visibility = "visible";
     // debugger
     // target.style.overflow = 'hidden';
@@ -311,6 +311,17 @@ let menuPageBody = document.querySelector('.menu-page__body');
 menuPageBurger.addEventListener("click", function (e) {
     menuPageBurger.classList.toggle('_active');
     _slideToggle(menuPageBody);
+});
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+let searchSelect = document.querySelector('.search-page__title');
+let categoriesSearch = document.querySelector('.categories-search');
+
+searchSelect.addEventListener('click', function (e) {
+    searchSelect.classList.toggle('_active');
+    _slideToggle(categoriesSearch);
 });
 
 /////////////////////////////////////////////////////////////////////////////
