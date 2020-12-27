@@ -4,6 +4,9 @@
 
   &__container {
     display: flex;
+    .page__content {
+      height: 290px;
+    }
   }
 
   &__side {

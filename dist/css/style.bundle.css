@@ -782,6 +782,8 @@ input[type='search']::-webkit-search-results-decoration {
   flex: 1 1 auto; }
   .page__container {
     display: flex; }
+    .page__container .page__content {
+      height: 290px; }
   .page__side {
     flex: 0 0 260px; }
   .page__content {

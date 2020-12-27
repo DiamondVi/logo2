@@ -227,16 +227,21 @@ for (let index = 0; index < menuParents.length; index++) {
 
 let _slideUp = (target, duration = 500) => {
     // debugger
-    target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration + 'ms';
-    target.style.height = height //= target.offsetHeight + 'px';
+    // target.style.transitionProperty = 'height, margin, padding';
+    // target.style.transitionDuration = duration + 'ms';
+    // Задаем текущую высоту статично нужно чтобы работал переход.
+    target.style.height = target.offsetHeight + 'px' //= target.offsetHeight + 'px';
+    //Обновляем стили.
     target.offsetHeight;
     // target.style.overflow = 'hidden';
+    //Задаем текущую высоту в 0
     target.style.height = 0;
     // target.style.paddingTop = 0;
     // target.style.paddingBottom = 0;
     window.setTimeout(() => {
+        // скрываем элемент через 500 милесекунд
         target.style.display = 'none';
+         //убираем статичную высоту
         target.style.removeProperty('height');
         // target.style.removeProperty('padding-top');
         // target.style.removeProperty('padding-bottom');
@@ -245,6 +250,7 @@ let _slideUp = (target, duration = 500) => {
         // target.style.removeProperty('overflow');
         // target.style.removeProperty('transition-duration');
         // target.style.removeProperty('transition-property');
+         //убираем свойство слайд
         target.classList.remove('_slide');
     }, duration);
 }
@@ -255,20 +261,24 @@ let _slideDown = (target, duration = 500) => {
     // if (display === 'none')
     // let    display = 'block';
     // target.style.visibility = "hidden";
+     //отображаем блок нужно чтобы сохранить текущую высоту
     target.style.display = 'block';
-    height = target.offsetHeight + 'px';
+     //высчитываем текущую высоту и сохраняем в переменную
+    const height = target.offsetHeight + 'px';
     // target.style.visibility = "visible";
     // debugger
     // target.style.overflow = 'hidden';
-
+    //устанавливаем текущую высоту в 0
     target.style.height = 0;
     // target.style.paddingTop = 0;
     // target.style.paddingBottom = 0;
     // target.style.marginTop = 0;
     // target.style.marginBottom = 0;
+    //обновляем отображение высоты = 0
     target.offsetHeight;
-    target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = duration + 'ms';
+    // target.style.transitionProperty = 'height, margin, padding';
+    // target.style.transitionDuration = duration + 'ms';
+    // выводим сохраненную высоту и начинается анимация от 0 до нужного
     target.style.height = height;
     // target.offsetHeight;
     //window.getComputedStyle(target)
@@ -277,26 +287,29 @@ let _slideDown = (target, duration = 500) => {
     // target.style.removeProperty('margin-top');
     // target.style.removeProperty('margin-bottom');
     window.setTimeout(() => {
+        //убираем статичную высоту
         target.style.removeProperty('height');
         // target.style.removeProperty('overflow');
         // target.style.removeProperty('transition-duration');
         // target.style.removeProperty('transition-property');
+        //убираем свойство слайд
         target.classList.remove('_slide');
     }, duration);
 }
 
-let open = false;
-let height = 0;
+// let height = 0;
 let _slideToggle = (target, duration = 500) => {
+    target.style.transitionProperty = 'height, margin, padding';
+    target.style.transitionDuration = duration + 'ms';
+    target.style.overflow = 'hidden';
     if (!target.classList.contains('_slide')) {
         target.classList.add('_slide');
         // let height = target.style.height;
         // debugger
-        if (!open) {
-            open = !open;
+        const display = window.getComputedStyle(target).display;
+        if (display === 'none') {
             return _slideDown(target, duration);
         } else {
-            open = !open;
             return _slideUp(target, duration);
         }
     }
