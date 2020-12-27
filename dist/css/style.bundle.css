@@ -855,6 +855,8 @@ input[type='search']::-webkit-search-results-decoration {
   .menu-page__parent._active .submenu-page__item {
     z-index: 2;
     transform: translate(0px, 0px); }
+  .menu-page__parent._active .submenu-page {
+    display: block; }
   .menu-page__parent._active .menu-page__link {
     background-color: #098494; }
   .menu-page__link {
@@ -869,6 +871,7 @@ input[type='search']::-webkit-search-results-decoration {
       .menu-page__link:hover {
         background-color: #098494; } }
   .menu-page__submenu {
+    display: none;
     position: absolute;
     top: 0;
     left: 100%;

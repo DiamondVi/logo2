@@ -127,6 +127,10 @@
         transform: translate(0px, 0px);
       }
 
+      .submenu-page {
+        display: block;
+      }
+
       .menu-page__link {
         background-color: #098494;
       }
@@ -149,6 +153,7 @@
   }
 
   &__submenu {
+    display: none;
     position: absolute;
     top: 0;
     left: 100%;
