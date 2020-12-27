@@ -996,6 +996,10 @@ input[type='search']::-webkit-search-results-decoration {
       height: 10px;
       background: url("../img/ico/arrow-icon.png");
       transition: all .3s ease 0s; }
+    .search-page__title._categories span {
+      display: none; }
+      .search-page__title._categories span:last-child {
+        display: block; }
     .search-page__title._active:after {
       transform: rotate(-180deg); }
   .search-page__categories {

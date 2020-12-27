@@ -324,6 +324,16 @@
       transition: all .3s ease 0s;
     }
 
+    &._categories {
+      span {
+        display: none;
+
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+
     &._active {
       &:after {
         transform: rotate(-180deg);
