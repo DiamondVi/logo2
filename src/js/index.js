@@ -1,4 +1,5 @@
 import dynamic_adapt from "./dynamic_adapt"
+import sliders from "./sliders"
 
 let menu__icon = document.querySelector('.icon-menu');
 let menu__body = document.querySelector('.menu__body');
@@ -168,6 +169,21 @@ for (let index = 0; index < checkboxCategories.length; index++){
         }
     });
 }
+
+/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+function ibg(){
+
+    let ibg=document.querySelectorAll("._ibg");
+    for (var i = 0; i < ibg.length; i++) {
+        if(ibg[i].querySelector('img')){
+            ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+        }
+    }
+}
+
+ibg();
 
 /////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
