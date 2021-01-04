@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon/icon.ico" />
     <link rel="stylesheet" href="css/style.bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <title>Главная</title>
 </head>
 
@@ -433,9 +434,28 @@
                     </div>
                     <button class="search-page__btn btn" type="submit">Найти</button>
                 </form>
-                <div class="page__slider mainslider">
-                    <div class="mainslider__body _swiper">
-                        <div class="mainslider__slide">
+                <div class="page__slider mainslider slider swiper-container">
+                    <div class="mainslider__body _swiper swiper-wrapper">
+                        <div class="mainslider__slide swiper-slide">
+                            <div class="mainslider__content content-mainslider">
+                                <div class="content-mainslider__title"><span>Мега</span> распродажа</div>
+                                <div class="content-mainslider__text text-mainslider">
+                                    <p><span class="text-mainslider__text-1">успей купить </span>тренажёры</p>
+                                    <p><span class="text-mainslider__text-2">по старой цене</span></p>
+                                    <p> до их <span class="text-mainslider__text-3">повышения</span></p>
+                                </div>
+                                <div class="content-mainslider__footer">
+                                    <div class="content-mainslider__price rub">от 45 000</div>
+                                    <a href="#" class="content-mainslider__button">
+                                        <span>подробнее</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mainslider__image _ibg">
+                                <img src="img/mainslider/01.png" alt="main slider">
+                            </div>
+                        </div>
+                        <div class="mainslider__slide swiper-slide">
                             <div class="mainslider__content content-mainslider">
                                 <div class="content-mainslider__title"><span>Мега</span> распродажа</div>
                                 <div class="content-mainslider__text text-mainslider">
@@ -458,11 +478,15 @@
                     <div class="mainslider__dots"></div>
                 </div>
             </div>
+
+
+
         </div>
     </main>
     
 </div>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="js/bundle.js"></script>
 </body>
 </html>

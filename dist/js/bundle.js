@@ -188,7 +188,10 @@ window.addEventListener("resize", function (event) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dynamic_adapt */ "./src/js/dynamic_adapt.js");
 /* harmony import */ var _dynamic_adapt__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_dynamic_adapt__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _sliders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sliders */ "./src/js/sliders.js");
+/* harmony import */ var _sliders__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_sliders__WEBPACK_IMPORTED_MODULE_1__);
 ;
+
 
 let menu__icon = document.querySelector('.icon-menu');
 let menu__body = document.querySelector('.menu__body');
@@ -422,6 +425,76 @@ ibg();
 
 
 
+
+/***/ }),
+
+/***/ "./src/js/sliders.js":
+/*!***************************!*\
+  !*** ./src/js/sliders.js ***!
+  \***************************/
+/*! unknown exports (runtime-defined) */
+/*! runtime requirements:  */
+/***/ (() => {
+
+// let sliders = document.querySelectorAll('._swiper');
+// if (sliders) {
+//     for (let index = 0; index < sliders.length; index++) {
+//         let slider = sliders[index];
+//         if (!slider.classList.contains('swiper-bild')){
+//             let slider_items = slider.children;
+//             if (slider_items){
+//                 for (let index = 0; index < slider_items.length; index++){
+//                     let el = slider_items[index];
+//                     el.classList.add('swiper-slide');
+//                 }
+//             }
+// let slider_content = slider.innerHTML;
+//             let slider_wrapper = document.createElement('div');
+//             slider_wrapper.classList.add('swiper-wrapper');
+//             slider_wrapper.innerHTML = slider_content;
+//             slider.innerHTML = '';
+//             slider.appendChild(slider_wrapper);
+//             slider.classList.add('swiper-bild');
+//         }
+//         if (slider.classList.contains('_gallery')) {
+//
+//         }
+//     }
+//     sliders_bild_callback();
+// }
+//
+// function sliders_bild_callback(params) {}
+//
+// let slider_about = new Swiper('.about__slider', {
+//
+// })
+//
+// observer: true;
+// observerParents: true;
+// slidersParView: 1,
+// spaceBetween: 0,
+//     autoHeight: true,
+//     speed: 800,
+//
+//     navigation:{
+//     nextEl: '.about__more .more__item_next',
+//       prevEl:   '.about__more .more__item_prev',
+// },
+//
+// on:{
+//     lazyImageReady: function(){
+//         ibg();
+//     },
+// }
+// });
+
+new Swiper('.slider', {
+    pagination: {
+        el: '.mainslider__dots',
+        clickable: true,
+    },
+    loop: true,
+});
 
 /***/ })
 

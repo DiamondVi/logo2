@@ -11,6 +11,8 @@
   }
 
   &__side {
+    position: relative;
+    z-index: 3;
     flex: 0 0 260px;
   }
 
@@ -21,6 +23,8 @@
   }
 
   &__search {
+    position: relative;
+    z-index: 2;
     margin: 0 0 22px 0;
   }
 
