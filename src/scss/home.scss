@@ -36,7 +36,10 @@
       border: 2px solid #fffefe;
       position: relative;
       overflow: hidden;
-
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 1;
       &::after {
         opacity: 0;
         transition: all .3s ease 0s;

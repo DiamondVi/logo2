@@ -50,10 +50,21 @@
 // }
 // });
 
-new Swiper('.slider', {
-    pagination: {
-        el: '.mainslider__dots',
-        clickable: true,
-    },
-    loop: true,
-});
+
+if (document.querySelector('.mainslider')) {
+    new Swiper('.slider', {
+        pagination: {
+            el: '.mainslider__dots',
+            clickable: true,
+        },
+        // loop: true,
+    });
+
+    let mainsliderImages = document.querySelectorAll('.mainslider__image');
+    let mainsliderDots = document.querySelectorAll('.mainslider__dots .swiper-pagination-bullet');
+
+    for (let index = 0; index < mainsliderImages.length; index++){
+        const mainsliderImage = mainsliderImages[index].querySelector('img').getAttribute('src');
+        mainsliderDots[index].style.backgroundImage = "url('" + mainsliderImage + "')";
+    }
+}
