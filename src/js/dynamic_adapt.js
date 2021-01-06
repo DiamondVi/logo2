@@ -103,7 +103,7 @@ window.addEventListener("resize", function (event) {
     }
 
     function index_of_elements(parent, back) {
-        debugger
+
         const children = parent.children;
         const children_array = [];
         for (let i = 0; i < children.length; i++) {

@@ -20,19 +20,51 @@ menu__list.onclick = function () {
 
 ///////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
+let isMobile = {
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+    },
+    any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
 
-let menuParents = document.querySelectorAll('.menu-page__parent');
+if (isMobile.any()) {
+    let menuParents = document.querySelectorAll('.menu-page__parent>a');
 
-for (let index = 0; index < menuParents.length; index++) {
-    const menuParent = menuParents[index];
-    menuParent.addEventListener("mouseenter", function (e) {
-        menuParent.classList.add("_active");
-    });
-    menuParent.addEventListener("mouseleave", function (e) {
-        menuParent.classList.remove("_active");
-    });
+    for (let index = 0; index < menuParents.length; index++) {
+        const menuParent = menuParents[index];
+        menuParent.addEventListener("click", function (e) {
+            menuParent.parentElement.classList.toggle('_active');
+            e.preventDefault();
+        });
+    }
+} else {
+
+    let menuParents = document.querySelectorAll('.menu-page__parent');
+
+    for (let index = 0; index < menuParents.length; index++) {
+        const menuParent = menuParents[index];
+        menuParent.addEventListener("mouseenter", function (e) {
+            menuParent.classList.add("_active");
+        });
+        menuParent.addEventListener("mouseleave", function (e) {
+            menuParent.classList.remove("_active");
+        });
+    }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -52,7 +84,7 @@ let _slideUp = (target, duration = 500) => {
     window.setTimeout(() => {
         // скрываем элемент через 500 милесекунд
         target.style.display = 'none';
-         //убираем статичную высоту
+        //убираем статичную высоту
         target.style.removeProperty('height');
         // target.style.removeProperty('padding-top');
         // target.style.removeProperty('padding-bottom');
@@ -61,7 +93,7 @@ let _slideUp = (target, duration = 500) => {
         // target.style.removeProperty('overflow');
         // target.style.removeProperty('transition-duration');
         // target.style.removeProperty('transition-property');
-         //убираем свойство слайд
+        //убираем свойство слайд
         target.classList.remove('_slide');
     }, duration);
 }
@@ -72,9 +104,9 @@ let _slideDown = (target, duration = 500) => {
     // if (display === 'none')
     // let    display = 'block';
     // target.style.visibility = "hidden";
-     //отображаем блок нужно чтобы сохранить текущую высоту
+    //отображаем блок нужно чтобы сохранить текущую высоту
     target.style.display = 'block';
-     //высчитываем текущую высоту и сохраняем в переменную
+    //высчитываем текущую высоту и сохраняем в переменную
     const height = target.offsetHeight + 'px';
     // target.style.visibility = "visible";
     // debugger
@@ -153,14 +185,14 @@ searchSelect.addEventListener('click', function (e) {
 
 let checkboxCategories = document.querySelectorAll('.categories-search__checkbox');
 
-for (let index = 0; index < checkboxCategories.length; index++){
+for (let index = 0; index < checkboxCategories.length; index++) {
     const checkboxCategory = checkboxCategories[index];
-    checkboxCategory.addEventListener("change", function (e){
+    checkboxCategory.addEventListener("change", function (e) {
         checkboxCategory.classList.toggle('_active');
 
         let checkboxActiveCategories = document.querySelectorAll('.categories-search__checkbox._active');
 
-        if (checkboxActiveCategories.length > 0){
+        if (checkboxActiveCategories.length > 0) {
             searchSelect.classList.add('_categories');
             let searchQuantity = searchSelect.querySelector('.search-page__quantity');
             searchQuantity.innerHTML = searchQuantity.getAttribute('data-text') + " " + checkboxActiveCategories.length;
@@ -173,12 +205,12 @@ for (let index = 0; index < checkboxCategories.length; index++){
 /////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 
-function ibg(){
+function ibg() {
 
-    let ibg=document.querySelectorAll("._ibg");
+    let ibg = document.querySelectorAll("._ibg");
     for (var i = 0; i < ibg.length; i++) {
-        if(ibg[i].querySelector('img')){
-            ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+        if (ibg[i].querySelector('img')) {
+            ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
         }
     }
 }

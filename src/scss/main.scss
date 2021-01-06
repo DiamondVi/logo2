@@ -1,30 +1,46 @@
 .page {
   padding: 164px 0 0 0;
   flex: 1 1 auto;
+  @media (max-width: $md3+px) {
+    padding: 133px 0 0 0;
+  }
+
+  @media (max-width: 640px) {
+    padding: 85px 0 0 0;
+  }
 
   &__container {
-    display: flex;
+    @media (min-width: $md2+px) {
+      display: flex;
+    }
 
     .page__content {
-      height: 290px;
+      //height: 290px;
     }
   }
 
   &__side {
     position: relative;
-    z-index: 3;
+    z-index: 10;
     flex: 0 0 260px;
+    @media (max-width: $md2+px) {
+      margin: 0 0 30px 0;
+    }
   }
-
+&__menu{
+  margin: 0 0 40px 0;
+}
   &__content {
-    flex: 1 1 auto;
-    min-width: 0;
-    padding: 0 0 0 30px;
+    @media (min-width: $md2+px) {
+      flex: 1 1 auto;
+      min-width: 0;
+      padding: 0 0 0 30px;
+    }
   }
 
   &__search {
     position: relative;
-    z-index: 2;
+    z-index: 5;
     margin: 0 0 22px 0;
   }
 
@@ -34,7 +50,7 @@
 }
 
 .menu-page {
-  background: url("../img/bg_menu.jpg") top no-repeat;
+  background: url("../img/bg_menu.jpg") top repeat;
   position: relative;
 
 
@@ -45,6 +61,7 @@
   }
 
   &__title {
+    flex: 1 1 auto;
     font-family: "UniSans", sans-serif;
     font-size: 30px;
     font-weight: 400;
@@ -124,6 +141,7 @@
     .menu-page__link {
       &:after {
         content: "";
+        transition: all .3s ease 0s;
         width: 14px;
         height: 14px;
         position: absolute;
@@ -131,13 +149,19 @@
         top: 50%;
         transform: translate(0px, -50%);
         background: url("../img/menu_arrow.png") 0 0 no-repeat;
+        @media (max-width: $md2+px) {
+          transform: translate(0px, -50%) rotate(90deg);
+        }
       }
     }
 
     &._active {
       .submenu-page__item {
-        z-index: 2;
-        transform: translate(0px, 0px);
+        display: block;
+        @media (min-width: $md2+px) {
+          z-index: 2;
+          transform: translate(0px, 0px);
+        }
       }
 
       .submenu-page {
@@ -146,6 +170,11 @@
 
       .menu-page__link {
         background-color: #098494;
+        @media (max-width: $md2+px) {
+          &:after {
+            transform: translate(0px, -50%) rotate(-90deg);
+          }
+        }
       }
     }
   }
@@ -163,32 +192,44 @@
         background-color: #098494;
       }
     }
+    @media (max-width: $md2+px) {
+      font-size: 14px;
+    }
   }
 
   &__submenu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+
+    @media (min-width: $md2+px) {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
   }
 }
 
 .submenu-page {
-
+  @media (max-width: $md2+px) {
+    background-color: #ffffff;
+  }
 
   &__item {
-    border: 2px solid #098494;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0%;
-    transition: all .3s ease 0s;
-    transform: translate(-100%, 0px);
+    display: none;
+    @media (min-width: $md2+px) {
+      display: block;
+      border: 2px solid #098494;
+      background-color: #ffffff;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0%;
+      transition: all .3s ease 0s;
+      transform: translate(-100%, 0px);
+    }
   }
 
   &__menu {
@@ -210,10 +251,17 @@
         color: #ffffff;
       }
     }
+    @media (max-width: $md2+px) {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
   }
 
   &__product {
     padding: 0 15px;
+    @media (max-width: $md2+px) {
+      display: none;
+    }
   }
 }
 
@@ -316,6 +364,7 @@
     padding: 0 14px;
     align-items: center;
     cursor: pointer;
+
   }
 
   &__title {
@@ -328,6 +377,9 @@
     span {
       margin: 0 13px;
       border-bottom: 1px dashed #666666;
+      @media (max-width: $md3+px) {
+        display: none;
+      }
 
       &:last-child {
         display: none;
@@ -394,7 +446,12 @@
   overflow: hidden;
 
   &__row {
-    display: flex;
+    @media (min-width: $md2+px) {
+      display: flex;
+    }
+    @media (max-width: $md2+px) {
+      padding: 20px 0;
+    }
   }
 
   &__column {
@@ -404,6 +461,17 @@
 
     &:last-child {
       border: 0;
+    }
+
+    @media (max-width: $md1+px) {
+      padding: 27px 20px;
+    }
+    @media (max-width: $md2+px) {
+      padding: 0px 20px;
+      margin: 0 0 20px 0;
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 

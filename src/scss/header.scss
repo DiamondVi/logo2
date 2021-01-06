@@ -230,14 +230,15 @@
 }
 
 .bottom-header {
-
+  padding: 10px 0;
   &__container {
 
   }
 
   &__row {
+
     display: flex;
-    height: 63px;
+    //height: 63px;
     align-items: center;
     justify-content: space-between;
     @media (min-width: $md1+px) {
