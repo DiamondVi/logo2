@@ -27,9 +27,11 @@
       margin: 0 0 30px 0;
     }
   }
-&__menu{
-  margin: 0 0 40px 0;
-}
+
+  &__menu {
+    margin: 0 0 40px 0;
+  }
+
   &__content {
     @media (min-width: $md2+px) {
       flex: 1 1 auto;
@@ -46,6 +48,18 @@
 
   &__slider {
     margin: 0 0 65px 0;
+  }
+
+  &__news-side {
+    margin: 0 0 75px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__reviews-side {
+
   }
 }
 

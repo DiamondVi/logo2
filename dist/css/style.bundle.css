@@ -472,6 +472,67 @@ input[type='search']::-webkit-search-results-decoration {
   font-weight: 300;
   line-height: 18px; }
 
+.reviews-side__item {
+  display: block;
+  margin: 32px 0 39px 0; }
+  .reviews-side__item:last-child {
+    margin: 0; }
+  @media (min-width: 991.98px) {
+    .reviews-side__item:hover .reviews-side__user, .reviews-side__item:hover .reviews-side__data {
+      color: #1ab9ce; }
+    .reviews-side__item:hover .reviews-side__body {
+      background-color: #1ab9ce;
+      color: #ffffff; }
+      .reviews-side__item:hover .reviews-side__body:before {
+        color: #64deee; } }
+
+.reviews-side__title {
+  display: inline-block;
+  margin: 0 0 0.66667em 0; }
+
+.reviews-side__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0; }
+
+.reviews-side__user {
+  display: block;
+  color: #333333;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 18px; }
+  @media (min-width: 991.98px) {
+    .reviews-side__user:hover {
+      color: #1ab9ce; } }
+
+.reviews-side__data {
+  display: block;
+  color: #999999;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: 300; }
+
+.reviews-side__body {
+  display: block;
+  position: relative;
+  padding: 14px 8px 14px 30px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #666666;
+  font-weight: 300; }
+  .reviews-side__body::before {
+    content: '"';
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    color: #dadada;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1; }
+
 .header {
   background: #ffffff url("../img/bg_header.jpg") top no-repeat;
   position: fixed;
@@ -880,6 +941,10 @@ input[type='search']::-webkit-search-results-decoration {
     margin: 0 0 22px 0; }
   .page__slider {
     margin: 0 0 65px 0; }
+  .page__news-side {
+    margin: 0 0 75px 0; }
+    .page__news-side:last-child {
+      margin: 0; }
 
 .menu-page {
   background: url("../img/bg_menu.jpg") top repeat;
