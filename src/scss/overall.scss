@@ -188,9 +188,11 @@ input[type='search']::-webkit-search-results-decoration {
   &__item {
     display: block;
     margin: 32px 0 39px 0;
-    &:last-child{
+
+    &:last-child {
       margin: 0;
     }
+
     @media (min-width: $md2+px) {
       &:hover {
         .reviews-side__user, .reviews-side__data {
@@ -200,7 +202,8 @@ input[type='search']::-webkit-search-results-decoration {
         .reviews-side__body {
           background-color: #1ab9ce;
           color: #ffffff;
-          &:before{
+
+          &:before {
             color: #64deee;
           }
         }
@@ -264,4 +267,34 @@ input[type='search']::-webkit-search-results-decoration {
     }
   }
 
+}
+
+._arrow {
+  background: url("../img/ico/sl_arrow.svg") 0 0 no-repeat;
+  height: 29px;
+  cursor: pointer;
+  outline: none;
+  padding: 0 17px;
+  @media (min-width: $md2+px) {
+    &:hover {
+      background: url("../img/ico/sl_arrow_h.svg") 0 0 no-repeat;
+    }
+  }
+}
+
+._arrow_prev {
+  @media (min-width: $md2+px) {
+    &:hover {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+._arrow_next {
+  transform: rotate(-180deg);
+  @media (min-width: $md2+px) {
+    &:hover {
+      transform: rotate(0deg);
+    }
+  }
 }
